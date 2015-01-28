@@ -80,7 +80,7 @@ function showhide_shortcode($atts, $content = null) {
 
 	$output  = '<div class="sh-link ' . $attributes['type'] . '-link ' . $hidden_class . '">';
 	$output .= '<a href="#" onclick="showhide_toggle( this, ';
-	$output .= '\'' . esc_js($more_text) . '\', ' . '\'' . esc_js($less_text) . '\');">';
+	$output .= '\'' . esc_js($more_text) . '\', ' . '\'' . esc_js($less_text) . '\');" class="' . $hidden_class . '">';
 	$output .= '<span>' .$more_text . '</span></a></div>';
 	$output .= '<div class="sh-content ' . $attributes['type'] . '-content ' . $hidden_class . '" style="' . $hidden_css . '">';
 	$output .= do_shortcode( $content ) . '</div>';
