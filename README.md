@@ -1,10 +1,10 @@
 # WP-ShowHide
-Contributors: GamerZ  
+Contributors: GamerZ, meyercr
 Donate link: http://lesterchan.net/site/donation/  
 Tags: show, hide, content, visibility, press release, toggle  
 Requires at least: 3.0  
 Tested up to: 4.0  
-Stable tag: 1.03  
+Stable tag: 1.04  
 
 Allows you to embed content within your blog post via WordPress ShortCode API and toggling the visibility of the cotent via a link.
 
@@ -27,6 +27,9 @@ By default the content is hidden and user will have to click on the "Show Conten
 I spent most of my free time creating, updating, maintaining and supporting these plugins, if you really love my plugins and could spare me a couple of bucks, I will really appericiate it. If not feel free to use it without any obligations.
 
 ## Changelog
+
+### Version 1.04
+* NEW: remove dependency on inserted elements using id property to toggle, instead use jQuery relative functions.  This removes the necessity to have unique "types" when there are multiple show/hides on the same page
 
 ### Version 1.03
 * NEW: Added `.sh-link` and `.sh-content` as a standard class name on top of the type specific class name.
@@ -53,7 +56,7 @@ I spent most of my free time creating, updating, maintaining and supporting thes
 2. Example: `[showhide]Press release content goes in here.[/showhide]`
 3. Default Values: `[showhide type="pressrelease" more_text="Show Press Release (%s More Words)" less_text="Hide Press Release (%s Less Words)" hidden="yes"]`
 
-1. You can have multiple showhide content within a post or a page, just by having a new type.
+1. You can have multiple showhide content within a post or a page, just by having a new type.  (This requirement is now removed!)
 2. Example: `[showhide type="links" more_text="Show Links (%s More Words)" less_text="Hide Links (%s More Words)"]Links will go in here.[/showhide]`
 
 1. If you want to set the default visibility to display.

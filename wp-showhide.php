@@ -3,9 +3,9 @@
 Plugin Name: WP-ShowHide
 Plugin URI: http://lesterchan.net/portfolio/programming/php/
 Description: Allows you to embed content within your blog post via WordPress ShortCode API and toggling the visibility of the cotent via a link. By default the content is hidden and user will have to click on the "Show Content" link to toggle it. Similar to what Engadget is doing for their press releases. Example usage: <code>[showhide type="pressrelease"]Press Release goes in here.[/showhide]</code>
-Version: 1.03
-Author: Lester 'GaMerZ' Chan
-Author URI: http://lesterchan.net
+Version: 1.04
+Author: Lester 'GaMerZ' Chan & Craig Meyer
+Author URI: http://lesterchan.net & http://meyerscitech.com
 Text Domain: wp-showhide
 */
 
