@@ -67,22 +67,13 @@ function showhide_shortcode($atts, $content = null) {
 	}
 
 	// Format HTML Output
-	/*
-	$output  = '<div id="' . $attributes['type'] . '-link-' . $post_id . '" class="sh-link ';
-	$output .= $attributes['type'] . '-link ' . $hidden_class . '"><a href="#" onclick="showhide_toggle(\'';
-	$output .= $attributes['type'] . '\', ' . $post_id . ', \'' . esc_js($more_text) . '\', \'';
-	$output .= esc_js($less_text) . '\'); return false;"><span id="';
-	$output .= $attributes['type'] . '-toggle-' . $post_id . '">' . $more_text . '</span></a></div>';
-	$output .= '<div id="' . $attributes['type'] . '-content-' . $post_id . '" class="sh-content ';
-	$output .= $attributes['type'] . '-content ' . $hidden_class . '" style="' . $hidden_css . '">';
-	$output .= do_shortcode( $content ) . '</div>';
-	*/
 
-	$output  = '<div class="sh-link ' . $attributes['type'] . '-link ' . $hidden_class . '">';
+	$type = $attributes['type'];
+	$output  = '<div class="sh-link ' . $type . '-link ' . $hidden_class . '">';
 	$output .= '<a href="#" onclick="showhide_toggle( this, ';
 	$output .= '\'' . esc_js($more_text) . '\', ' . '\'' . esc_js($less_text) . '\');" class="' . $hidden_class . '">';
 	$output .= '<span>' .$more_text . '</span></a></div>';
-	$output .= '<div class="sh-content ' . $attributes['type'] . '-content ' . $hidden_class . '" style="' . $hidden_css . '">';
+	$output .= '<div class="sh-content ' . $type . '-content ' . $hidden_class . '" style="' . $hidden_css . '">';
 	$output .= do_shortcode( $content ) . '</div>';
 
 	return $output;
@@ -100,29 +91,12 @@ function showhide_footer() {
 			    show_hide_class = 'sh-show sh-hide';
 			    jQuery(obj).toggleClass(show_hide_class);
 			    jQuery(obj).parent().next().toggleClass(show_hide_class).toggle();
-			    if( toggle.text() === more_text ) {
-				toggle.text(less_text);
-			    } else {
-				toggle.text(more_text);
-			    }
+			    toggle.text( (toggle.text() === more_text) ? less_text : more_text );
 			    return( false );
 			}
 		</script>
 	<?php else : ?>
-	<script type="text/javascript">
-	function showhide_toggle(o, m, l) {
-            var  toggle = jQuery(o).children().first(),
-	    c = 'sh-show sh-hide';
-	    jQuery(o).toggleClass(c);
-	    jQuery(o).parent().next().toggleClass(c).toggle();
-	    if( toggle.text() === m ) {
-		toggle.text(l);
-	    } else {
-		toggle.text(m);
-	    }
-	    return( false );
-	}
-    </script>
+	<script type="text/javascript">function showhide_toggle(o, m, l) {var  toggle = jQuery(o).children().first(), c = 'sh-show sh-hide'; jQuery(o).toggleClass(c); jQuery(o).parent().next().toggleClass(c).toggle(); toggle.text( (toggle.text() === m) ? l : m ); return( false );}</script>
 	<?php endif; ?>
 <?php
 }
